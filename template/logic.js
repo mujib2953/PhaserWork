@@ -2,7 +2,7 @@
 * @Author: Mujib Ansari
 * @Date:   2017-05-06 17:01:53
 * @Last Modified by:   Mujib Ansari
-* @Last Modified time: 2017-05-06 17:27:29
+* @Last Modified time: 2017-05-06 18:06:18
 */
 
 'use strict';
@@ -19,7 +19,9 @@ $( document ).ready( function() {
 function createGame() {
 	this.game = new Phaser.Game( 800, 600, Phaser.CANVAS, 'phaser-example', {
 		preload: preload,
-		create: create
+		create: create,
+		update: update,
+		render: render
 	} );
 };
 
@@ -29,7 +31,21 @@ function createGame() {
 function preload() {
 	console.log( '%c Assets preloaded. ', 'background: black; color: white' );
 };
-
+/*
+* Create the components used in the game
+*/
 function create() {
 	console.log( '%c Component Creation Completed. ', 'background: black; color: white' );	
+};
+
+/*
+* Update the view of the game
+*/
+function update() {};
+
+/*
+* render the view as per the requirements
+*/
+function render() {
+
 };
