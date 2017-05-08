@@ -1,11 +1,12 @@
 /*
 * @Author: Mujib Ansari
 * @Date:   2017-05-06 17:01:53
-* @Last Modified by:   Mujib Ansari
-* @Last Modified time: 2017-05-06 18:06:18
+* @Last Modified by:   mujibur
+* @Last Modified time: 2017-05-08 13:37:27
 */
 
 'use strict';
+(function() {
 var oScope = {};
 
 $( document ).ready( function() {
@@ -49,3 +50,4 @@ function update() {};
 function render() {
 
 };
+}());
