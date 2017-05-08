@@ -1,8 +1,8 @@
 /*
 * @Author: Mujib Ansari
 * @Date:   2017-05-06 17:01:53
-* @Last Modified by:   Mujib Ansari
-* @Last Modified time: 2017-05-07 17:34:24
+* @Last Modified by:   mujibur
+* @Last Modified time: 2017-05-08 11:14:54
 */
 
 'use strict';
@@ -30,7 +30,6 @@ function createGame() {
 */
 function preload() {
 	
-	this.game.load.image( 'loop', '../repo/images/loop.png' );
 	this.game.load.atlas( 'seacreature', '../repo/anim/atlas/seacreatures_json.png', '../repo/anim/atlas/seacreatures_json.json' );
 	
 	console.log( '%c Assets preloaded. ', 'background: black; color: white' );
@@ -40,7 +39,16 @@ function preload() {
 */
 function create() {
 	
-	this.loop = this.game.
+	this.crab = this.game.make.sprite( 0, 0, 'seacreature', 'crab10015' );
+
+	// --- creating bitmap
+	this.bmd = this.game.add.bitmapData( this.game.width, this.game.height );
+	this.bmd.addToWorld();
+
+	//	Disables anti-aliasing when we draw sprites to the BitmapData
+	this.bmd.smoothed = false;
+
+	this.bmd.draw( this.crab, 10, 10 );
 
 	console.log( '%c Component Creation Completed. ', 'background: black; color: white' );	
 };
