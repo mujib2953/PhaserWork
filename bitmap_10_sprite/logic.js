@@ -2,7 +2,7 @@
 * @Author: Mujib Ansari
 * @Date:   2017-05-06 17:01:53
 * @Last Modified by:   mujibur
-* @Last Modified time: 2017-05-08 11:14:54
+* @Last Modified time: 2017-05-08 11:18:41
 */
 
 'use strict';
@@ -30,6 +30,7 @@ function createGame() {
 */
 function preload() {
 	
+	this.game.load.image('loop', '../repo/images/loop.png');
 	this.game.load.atlas( 'seacreature', '../repo/anim/atlas/seacreatures_json.png', '../repo/anim/atlas/seacreatures_json.json' );
 	
 	console.log( '%c Assets preloaded. ', 'background: black; color: white' );
@@ -38,6 +39,9 @@ function preload() {
 * Create the components used in the game
 */
 function create() {
+
+	this.loop = this.game.make.sprite(0, 0, 'loop');
+	this.loop.anchor.set(0.5);
 	
 	this.crab = this.game.make.sprite( 0, 0, 'seacreature', 'crab10015' );
 
@@ -50,13 +54,17 @@ function create() {
 
 	this.bmd.draw( this.crab, 10, 10 );
 
+	this.game.input.addMoveCallback(paint, this);
+
 	console.log( '%c Component Creation Completed. ', 'background: black; color: white' );	
 };
 
 /*
 * Update the view of the game
 */
-function update() {};
+function update() {
+	this.loop.rotation += 0.1;
+};
 
 /*
 * render the view as per the requirements
@@ -64,3 +72,11 @@ function update() {};
 function render() {
 
 };
+
+function paint(pointer, x, y) {
+
+	if (pointer.isDown) {
+		this.bmd.draw( this.loop, x, y);
+	}
+
+}
